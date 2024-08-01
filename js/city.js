@@ -500,7 +500,7 @@ var cities = [
       }
 ];
 
-console.log(datalist_au_0818); // 调试输出处理后的数据
+//console.log(datalist_au_0818); // 调试输出处理后的数据
 
 var currentLines = [];
 
@@ -592,11 +592,11 @@ L.geoJSON(cities, {
       var targetCity = feature.properties.name;
       var targetLatLng = e.latlng;
 
-      console.log("点击的城市: " + targetCity); // 调试输出点击的城市
+      //console.log("点击的城市: " + targetCity); // 调试输出点击的城市
 
       datalist_au_0818.forEach(function(line) {
         if (line.from === targetCity) {
-          console.log(`找到从 ${line.from} 到 ${line.to} 的线段`); // 调试输出匹配的线段
+          //console.log(`找到从 ${line.from} 到 ${line.to} 的线段`); // 调试输出匹配的线段
 
           var matchingCity = cities[0].features.find(function(city) {
             return city.properties.name === line.to;
@@ -605,10 +605,10 @@ L.geoJSON(cities, {
           if (matchingCity) {
             var startLatLng = [matchingCity.geometry.coordinates[1], matchingCity.geometry.coordinates[0]];
             var endLatLng = [targetLatLng.lat, targetLatLng.lng];
-            console.log(`创建从 ${line.from} 到 ${line.to} 的线段`); // 调试输出线段信息
+            //console.log(`创建从 ${line.from} 到 ${line.to} 的线段`); // 调试输出线段信息
             createDynamicLine(startLatLng, endLatLng, line.from, line.to, line.time);
           } else {
-            console.log(`未找到匹配的城市 ${line.to}`);
+            //console.log(`未找到匹配的城市 ${line.to}`);
           }
         }
       });
